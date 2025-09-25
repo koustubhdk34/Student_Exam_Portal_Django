@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Login | Student Exam Portal{% endblock title %}
+
+{% block body %}
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-5">
+      <div class="card shadow">
+        <div class="card-header text-center bg-success text-white">
+          <h4>Student Login</h4>
+        </div>
+        <div class="card-body">
+          <form method="post">{% csrf_token %}
+            <!-- Email or Username -->
+            <div class="form-group">
+              <label for="id_email">Email</label>
+              <input type="email" class="form-control" id="id_email" name="email" placeholder="Enter your email" required>
+            </div>
+
+            <!-- Password -->
+            <div class="form-group">
+              <label for="id_password">Password</label>
+              <input type="password" class="form-control" id="id_password" name="password" placeholder="Enter your password" required>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-success btn-block">Login</button>
+          </form>
+        </div>
+        <div class="card-footer text-center">
+          Don't have an account? <a href="#">Register</a><br>
+          <a href="#">Forgot Password?</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock body %}

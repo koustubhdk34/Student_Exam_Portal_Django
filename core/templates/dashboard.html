@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Dashboard | Student Exam Portal{% endblock title %}
+
+{% block body %}
+<div class="container mt-5">
+  <h2 class="mb-4">Welcome, {{ user.username }}</h2>
+
+  <!-- Quick Action Cards -->
+  <div class="row">
+    <div class="col-md-4 mb-3">
+      <div class="card text-center shadow">
+        <div class="card-body">
+          <h5 class="card-title">View Exams</h5>
+          <p class="card-text">Check all available exams and register for them.</p>
+          <a href="{% url 'exams' %}" class="btn btn-primary">Go</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <div class="card text-center shadow">
+        <div class="card-body">
+          <h5 class="card-title">My Results</h5>
+          <p class="card-text">View results of exams you have taken.</p>
+          <a href="{% url 'results' %}" class="btn btn-success">Go</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <div class="card text-center shadow">
+        <div class="card-body">
+          <h5 class="card-title">Profile</h5>
+          <p class="card-text">Update your profile or change password.</p>
+          <a href="{% url 'dashboard' %}" class="btn btn-info">Go</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock body %}

@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block title %}Register | Student Exam Portal{% endblock title %}
+
+{% block body %}
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow">
+        <div class="card-header text-center bg-primary text-white">
+          <h4>Student Registration</h4>
+        </div>
+        <div class="card-body">
+          <form method="post">{% csrf_token %}
+            <!-- Name -->
+            <div class="form-group">
+              <label for="id_name">Full Name</label>
+              <input type="text" class="form-control" id="id_name" name="name" placeholder="Enter your full name" required>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+              <label for="id_email">Email</label>
+              <input type="email" class="form-control" id="id_email" name="email" placeholder="Enter your email" required>
+            </div>
+
+            <!-- Phone -->
+            <div class="form-group">
+              <label for="id_phone">Phone</label>
+              <input type="text" class="form-control" id="id_phone" name="phone" placeholder="Enter phone number" maxlength="10" required>
+            </div>
+
+            <!-- WhatsApp (optional same as phone) -->
+            <div class="form-group">
+              <label for="id_whatsapp">WhatsApp Number</label>
+              <input type="text" class="form-control" id="id_whatsapp" name="whatsapp" placeholder="Enter WhatsApp number">
+            </div>
+
+            <!-- Country -->
+            <div class="form-group">
+              <label for="id_country">Country</label>
+              <select class="form-control" id="id_country" name="country" required>
+                <option value="">Select Country</option>
+                <option value="India">India</option>
+                <option value="USA">USA</option>
+                <option value="UK">UK</option>
+                <!-- Add more or use JSON later -->
+              </select>
+            </div>
+
+            <!-- Address -->
+            <div class="form-group">
+              <label for="id_address">Address</label>
+              <textarea class="form-control" id="id_address" name="address" rows="2" placeholder="Enter full address" required></textarea>
+            </div>
+
+            <!-- Password -->
+            <div class="form-group">
+              <label for="id_password">Password</label>
+              <input type="password" class="form-control" id="id_password" name="password" placeholder="Enter password" required>
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="form-group">
+              <label for="id_confirm_password">Confirm Password</label>
+              <input type="password" class="form-control" id="id_confirm_password" name="confirm_password" placeholder="Confirm password" required>
+            </div>
+
+            <!-- Submit -->
+            <button type="submit" class="btn btn-primary btn-block">Register</button>
+          </form>
+        </div>
+        <div class="card-footer text-center">
+          Already have an account? <a href="#">Login</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock body %}

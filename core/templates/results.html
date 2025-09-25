@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}Results | Student Exam Portal{% endblock title %}
+
+{% block body %}
+<div class="container mt-5">
+  <h2 class="mb-4 text-center">My Exam Results</h2>
+
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead class="thead-dark text-center">
+        <tr>
+          <th>Exam Name</th>
+          <th>Date</th>
+          <th>Marks</th>
+          <th>Grade</th>
+          <th>Admit Card</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for reg in registrations %}
+        <tr class="text-center">
+          <td>{{ reg.exam.title }}</td>
+          <td>{{ reg.exam.date }}</td>
+          <td>{% if reg.result_marks %}{{ reg.result_marks }}{% else %}-{% endif %}</td>
+          <td>
+            {% if reg.result_marks %}
+              {% if reg.result_marks >= 90 %}A+{% elif reg.result_marks >= 75 %}A{% elif reg.result_marks >= 60 %}B{% else %}C{% endif %}
+            {% else %}
+              -
+            {% endif %}
+          </td>
+          <td>
+            {% if reg.admit_card %}
+              <a href="{{ reg.admit_card.url }}" class="btn btn-info btn-sm">Download</a>
+            {% else %}
+              Not Available
+            {% endif %}
+          </td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="5" class="text-center">No results available yet.</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock body %}

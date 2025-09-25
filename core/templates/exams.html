@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Exams | Student Exam Portal{% endblock title %}
+
+{% block body %}
+<div class="container mt-5">
+  <h2 class="mb-4 text-center">Available Exams</h2>
+
+  <!-- Exams Table -->
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover">
+      <thead class="thead-dark text-center">
+        <tr>
+          <th>Exam Name</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Duration</th>
+          <th>Fee</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for exam in exams %}
+        <tr class="text-center">
+          <td>{{ exam.title }}</td>
+          <td>{{ exam.date }}</td>
+          <td>{{ exam.time }}</td>
+          <td>{{ exam.duration_minutes }} mins</td>
+          <td>${{ exam.fee }}</td>
+          <td>
+            <form method="post">{% csrf_token %}
+              <input type="hidden" name="exam_id" value="{{ exam.id }}">
+              <button type="submit" class="btn btn-success btn-sm">Register</button>
+            </form>
+          </td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="6" class="text-center">No exams available at the moment.</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock body %}

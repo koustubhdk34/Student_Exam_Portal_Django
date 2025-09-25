@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}Home | Student Exam Portal{% endblock title %}
+
+{% block body %}
+<div class="container mt-5">
+  <div class="jumbotron text-center">
+    <h1 class="display-4">Welcome to Exam Portal</h1>
+    <p class="lead">Manage your exam registrations, results, and schedules easily.</p>
+    <hr class="my-4">
+    <a class="btn btn-primary btn-lg mr-2" href="#" role="button">Register</a>
+    <a class="btn btn-success btn-lg" href="#" role="button">Login</a>
+  </div>
+
+  <!-- Optional Stats Section -->
+  <div class="row text-center">
+    <div class="col-md-3">
+      <div class="card">
+        <div class="card-body">
+          <h5>Total Students</h5>
+          <p class="display-4">500</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card">
+        <div class="card-body">
+          <h5>Upcoming Exams</h5>
+          <p class="display-4">12</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card">
+        <div class="card-body">
+          <h5>Institutes</h5>
+          <p class="display-4">60</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card">
+        <div class="card-body">
+          <h5>Professors</h5>
+          <p class="display-4">120</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock body %}
